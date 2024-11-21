@@ -34,20 +34,30 @@
   height: 15vh;
   margin-top: 1vh;
   margin-bottom: 1vh;
-  background-image: url('./assets/StarOutline.png');
+  /* background-image: url('./assets/StarOutline.png'); */
   background-position: center;
   background-size:contain;
   background-repeat: no-repeat;
 }
 
-.shapeButton.Mui-selected {
-  background-color: red;
+/* .upload-label {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  background-image: url('./assets/StarOutline.png');
+} */
+/* 
+.upload-label:hover {
+  background-color: #45a049;
 }
 
-/* .shapeButton:hover {
-  outline-color: green;
-  background-color: yellow;
-} */
+input[type="file"] {
+  display: none; /* Hide the file input element */
+
 
 #drawing_area {
   flex: 3;                        /* Drawing area takes more space */
