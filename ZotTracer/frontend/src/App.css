@@ -1,28 +1,58 @@
-.App {
-  text-align: center;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+#display {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: center;   /* Center content vertically */
+  align-items: center;       /* Center content horizontally */
+  height: 100vh;
+  width: 100vw;
+  background-color: rgb(32, 32, 34);
 }
 
-#display {
-  background-color:#000000;
+#top {
   display: flex;
+  align-items: center; 
+  width: 95%;
+  border-radius: 8px;
+  height: 60vh;
 }
 
 #left {
-  margin: 5vw;
+  flex: 1;                        /* Take up space proportionally */
+  margin-right: 20px;
+  background-color: #272727;
+  border-radius: 8px;
+  padding: 1vw;
+  height: 100%;
+}
+
+#shapes {
+  display: flex;
+  flex-direction: column;
+}
+
+.shapeButton {
+  height: 15vh;
+  margin-top: 1vh;
+  margin-bottom: 1vh;
+}
+
+.shapeButton:hover {
+  outline-color: green;
 }
 
 #drawing_area {
-  margin: 5vw;
+  flex: 3;                        /* Drawing area takes more space */
+  text-align: center;
+  background-color: #272727;
+  padding: 1vw;
+  border-radius: 8px;
+  height: 100%;
 }
 
+#footer {
+  width: 95%;
+  text-align: center;
+  margin-top: 20px;
+  background-color: #272727;
+  border-radius: 8px;
+}
