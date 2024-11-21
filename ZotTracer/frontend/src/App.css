@@ -44,15 +44,29 @@
   flex: 3;                        /* Drawing area takes more space */
   text-align: center;
   background-color: #272727;
-  padding: 1vw;
+  padding: 3vw;
   border-radius: 8px;
   height: 100%;
+  background-image: url('./assets/StarOutline.png');
+  background-position: center;
+  background-size:contain;
+  background-repeat: no-repeat;
+}
+
+#canvas {
+  padding: 3vw;
+  border-radius: 8px;
+  height: 100%;
+  background-image: url('./assets/StarOutline.png');
+  background-position: center;
+  background-size:contain;
+  background-repeat: no-repeat;
 }
 
 #footer {
   width: 95%;
   text-align: center;
-  margin-top: 20px;
+  margin-top: 10vh;
   background-color: #272727;
   border-radius: 8px;
 }

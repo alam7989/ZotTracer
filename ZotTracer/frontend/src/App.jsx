@@ -3,9 +3,7 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import { Button } from '@mui/material'
-// import { Excalidraw } from "@excalidraw/excalidraw";
-// import ExcalidrawComponent from './components/Excalidraw'
-// import { createTheme } from '@mui/material/styles';
+import ExcalidrawComponent from './components/Excalidraw'
 
 // const theme = createTheme({
 //   palette: {
@@ -45,14 +43,9 @@ function App() {
           </div>
           <div id='drawing_area'>
             <p>Drawing here:</p>
-            <>
-            {/* <h1 style={{ textAlign: "center"}}>Excalidraw Example</h1>
-            <div style={{ height: "100",backgroundColor:"powderblue" }}>
-              <Excalidraw />
-            </div> */}
-            </>
-            {/* <ExcalidrawComponent /> */}
-            {/* <Excalidraw ref={excalidrawRef} style={{ zIndex: '-100' }}/> */}
+            <div id="canvas" >
+            <ExcalidrawComponent />
+            </div>
           </div>
         </div>
         <div id='footer'>

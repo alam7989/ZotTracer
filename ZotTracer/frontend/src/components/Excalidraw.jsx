@@ -6,7 +6,13 @@ const ExcalidrawComponent = () => {
 
   return (
     <div style={{ width: "100%", height: "400px", border: "1px solid #ccc", zIndex:-100}}>
-      <Excalidraw ref={excalidrawRef} />
+      <Excalidraw 
+        ref={excalidrawRef} 
+        initialData={{ 
+            appState: {viewBackgroundColor: 'transparent'
+
+        } }}
+      />
     </div>
   );
 };
