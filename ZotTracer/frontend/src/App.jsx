@@ -5,29 +5,10 @@ import './App.css'
 import { Button } from '@mui/material'
 import ExcalidrawComponent from './components/Excalidraw'
 
-// const theme = createTheme({
-//   palette: {
-//     ochre: {
-//       main: '#E3D026',
-//       light: '#E9DB5D',
-//       dark: '#A29415',
-//       contrastText: '#242105',
-//     },
-//   },
-// });
 
 function App() {
   const [count, setCount] = useState(0)
-
-  const buttonStyle = {
-    "backgroundColor": "pink",
-    "&:hover": {
-      backgroundColor: "red"
-    },
-    "&:active": {
-      backgroundColor: "blue"
-    }
-  };
+  const [shape, setShape] = useState('circle');
 
   return (
       <div id='display'>
@@ -36,13 +17,13 @@ function App() {
           <div id='left'>
             <h3>Choose your shape!</h3>
             <div id='shapes'>
-              <Button class='shapeButton' sx={{buttonStyle}}/>
-              <Button class='shapeButton' variant="outlined"/>
-              <Button class='shapeButton' variant="contained"/>
+              <Button class='shapeButton' onClick={() => setShape("circle")}/>
+              <Button class='shapeButton' variant="outlined" onClick={() => setShape("triangle")}/>
+              <Button class='shapeButton' variant="contained" onClick={() => setShape("square")}/>
             </div>
           </div>
           <div id='drawing_area'>
-            <p>Drawing here:</p>
+            <p>Draw a {shape}</p>
             <div id="canvas" >
             <ExcalidrawComponent />
             </div>

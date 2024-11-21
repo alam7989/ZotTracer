@@ -34,11 +34,20 @@
   height: 15vh;
   margin-top: 1vh;
   margin-bottom: 1vh;
+  background-image: url('./assets/StarOutline.png');
+  background-position: center;
+  background-size:contain;
+  background-repeat: no-repeat;
 }
 
-.shapeButton:hover {
-  outline-color: green;
+.shapeButton.Mui-selected {
+  background-color: red;
 }
+
+/* .shapeButton:hover {
+  outline-color: green;
+  background-color: yellow;
+} */
 
 #drawing_area {
   flex: 3;                        /* Drawing area takes more space */
@@ -47,7 +56,7 @@
   padding: 3vw;
   border-radius: 8px;
   height: 100%;
-  background-image: url('./assets/StarOutline.png');
+  /* background-image: url('./assets/StarOutline.png'); */
   background-position: center;
   background-size:contain;
   background-repeat: no-repeat;
