@@ -9,6 +9,8 @@ function App() {
   const [shape, setShape] = useState('a circle'); // default shape: circle
   const [uploadedImage, setUploadedImage] = useState("");
   const fileInputRef = useRef(null);
+  const excalidrawAPIRef = useRef(null);
+
 
   const sendFileToBackend = async (file) => {
     const formData = new FormData();
@@ -70,17 +72,31 @@ function App() {
               </Button>
             </div>
           </div>
-          <div id='drawing_area'>
-            <p>Draw {shape} :D</p>
-            <div id="canvas" >
-            <ExcalidrawComponent />
-            </div>
+        </div>
+
+        <div id='drawing_area'>
+          <p>Draw {shape} :D</p>
+          <div id="canvas" >
+            <ExcalidrawComponent onAPIReady={(api) => {
+              excalidrawAPIRef.current = api; // Store API in a ref
+            }} />
           </div>
         </div>
-        <div id='footer'>
-          <p>Score:</p>
-        </div>
       </div>
+      <div id='top2ah'>
+        <div id='footer'>
+          <Button id='canvasClearButton' class='clearButton' style={{display: "inline"}} onClick={() => {
+            document.getElementById("footer").style.display = "none";
+            if (excalidrawAPIRef.current) {
+              excalidrawAPIRef.current.updateScene({ elements: [] });
+            }
+            document.getElementById("excalidraw").style.pointerEvents = "auto";
+          }} >Clear drawing</Button>
+          <p style={{display: "inline", paddingLeft: "1.5vw"}}>Score:</p>
+        </div>
+        <div id='spacer'>vhgh</div>
+      </div>
+    </div>
   )
 }
 

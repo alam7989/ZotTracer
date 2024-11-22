@@ -39,14 +39,15 @@
   background-repeat: no-repeat;
 }
 
+
 input[type="file"] {
   display: none; /* Hide the file input element */
 }
 
 #drawing_area {
-  flex: 3;                        /* Drawing area takes more space */
+  flex: 2;                        /* Drawing area takes more space */
   text-align: center;
-  background-color: #272727;
+  background-color: #ffffff;
   padding: 3vw;
   border-radius: 8px;
   height: 100%;
@@ -61,14 +62,46 @@ input[type="file"] {
   height: 100%;
   background-image: url('./assets/StarOutline.png');
   background-position: center;
+  background-size:30%;
+  background-repeat: no-repeat;
+}
+
+#top2ah {
+  display: flex;
+  align-items: center; 
+  width: 95%;
+  border-radius: 8px;
+  margin-top: 9vh;
+
+}
+
+#footer {
+  display: none;
+  flex: 1.03;
+  /* width: 100%; */
+  text-align: center;
+  padding-right: 1.5vw;
+  padding-left: 1.5vw;
+  border-radius: 8px;
+  background-color: #272727;
+
+}
+
+#spacer {
+  flex: 2;
+  text-align: center;
+  padding-left: 3vw;
+  margin-top: 5vh;
+  border-radius: 8px;
+  background-position: center;
   background-size:contain;
   background-repeat: no-repeat;
 }
 
-#footer {
-  width: 95%;
-  text-align: center;
-  margin-top: 10vh;
-  background-color: #272727;
-  border-radius: 8px;
+.clearButton {
+  height: 5vh;
+  margin-top: 1vh;
+  margin-bottom: 1vh;
+  padding-bottom: 7%;
+  background-color: aliceblue;
 }
