@@ -49,7 +49,7 @@ function App() {
                 }}
                 onClick={() => fileInputRef.current.click()}
               >
-                {!uploadedImage && "Upload Image"}
+                {!uploadedImage && "Upload Image (svg only)"}
               </Button>
             </div>
           </div>
