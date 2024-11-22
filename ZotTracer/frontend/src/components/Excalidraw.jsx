@@ -1,9 +1,10 @@
 import React, { useRef } from "react";
 import { Excalidraw } from "@excalidraw/excalidraw";
+import './Excalidraw.css'
 
 const ExcalidrawComponent = () => {
   const excalidrawRef = useRef(null);
-  const excalidrawAPI = excalidrawRef.current;
+  // const excalidrawAPI = excalidrawRef.current;
 
 //   useEffect(() => {
 //     // Once the component is mounted, set the tool and hide the toolbar
@@ -21,12 +22,13 @@ const ExcalidrawComponent = () => {
 //   }, []); // Only run once after mount
 
   return (
-    <div style={{ width: "100%", height: "400px", border: "1px solid #ccc"}} 
+    <div id="excalidraw" 
+
       onPointerUp={() => {
         // Handle pointer (mouse) updates
           console.log("SVG DATA STUFF");
       }}>
-      <Excalidraw 
+      <Excalidraw //id="excalidraw"
         // ref={excalidrawRef}
         // onChange={(elements) => {
         //     // Handle changes to the elements
