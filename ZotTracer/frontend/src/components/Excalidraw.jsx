@@ -1,51 +1,46 @@
-import React, { useRef } from "react";
+import React, { useState } from "react";
 import { Excalidraw } from "@excalidraw/excalidraw";
-import './Excalidraw.css'
 
-const ExcalidrawComponent = () => {
-  const excalidrawRef = useRef(null);
-  // const excalidrawAPI = excalidrawRef.current;
+const ExcalidrawComponent = ({ onAPIReady }) => {
 
-//   useEffect(() => {
-//     // Once the component is mounted, set the tool and hide the toolbar
-//     
-//     if (excalidrawAPI) {
-//       // Start with free-draw tool
-//       
-//       // Hide the toolbar
-//       excalidrawAPI.setState({
-//         appState: {
-//           isToolBarVisible: false,
-//         },
-//       });
-//     }
-//   }, []); // Only run once after mount
+  const [excalidrawAPI, setExcalidrawAPI] = useState(null);
+
+  const clearCanvas = () => {
+    console.log(excalidrawAPI);
+    if (excalidrawAPI) {
+      excalidrawAPI.updateScene({
+        elements: [], // Clears all elements
+      });
+      // excalidrawAPI.setActiveTool({
+      //   type: "freedraw"
+      // })
+    }
+  };
 
   return (
-    <div id="excalidraw" 
+    <Excalidraw id="excalidrawComp" excalidrawAPI={
+      (api) => {
+        console.log("Excalidraw API:", api);
+        setExcalidrawAPI(api);
+        onAPIReady(api); // Pass the API to the parent
+      }
+    }
+      // ref={excalidrawRef}
+      // onChange={(elements) => {
+      //     // Handle changes to the elements
+      //     console.log(elements);
+      // }}
 
-      onPointerUp={() => {
-        // Handle pointer (mouse) updates
-          console.log("SVG DATA STUFF");
-      }}>
-      <Excalidraw //id="excalidraw"
-        // ref={excalidrawRef}
-        // onChange={(elements) => {
-        //     // Handle changes to the elements
-        //     console.log(elements);
-        // }}
-        // onPointerDown
-        
-        initialData={{ 
-            appState: {
-                viewBackgroundColor: 'transparent',
-                zenModeEnabled: true,
-                activeTool: {
-                  type: "freedraw", // Start with the free-draw tool
-                },
-        } }}
-      />
-    </div>
+      initialData={{
+        appState: {
+          viewBackgroundColor: 'transparent',
+          zenModeEnabled: true,
+          activeTool: {
+            type: "freedraw", // Start with the free-draw tool
+          },
+        }
+      }}
+    />
   );
 };
 
