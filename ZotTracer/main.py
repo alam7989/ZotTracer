@@ -6,7 +6,7 @@ CORS(app)
 
 @app.route("/")
 def index():
-    return "sup bishes"
+    return "meow"
 
 @app.route("/api/data")
 def get_data():

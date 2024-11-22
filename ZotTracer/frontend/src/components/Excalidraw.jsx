@@ -26,7 +26,7 @@ const ExcalidrawComponent = () => {
         ref={excalidrawRef}
         onChange={(elements) => {
             // Handle changes to the elements
-            console.log(elements);
+            // console.log(elements);
         }}
         //   onPointerUpdate={(pointerData) => {
         //     // Handle pointer (mouse) updates
