@@ -49,10 +49,9 @@ function App() {
               <input
                 id="file-upload"
                 type="file"
-                accept=".svg"
+                accept=".png"
                 ref={fileInputRef}
                 onChange={handleFileUpload}
-                style={{ marginBottom: "10px" }}
               />
               <Button
                 class='shapeButton'
@@ -66,7 +65,7 @@ function App() {
                 }}
                 onClick={() => fileInputRef.current.click()}
               >
-                {!uploadedImage && "Upload Image (svg only)"}
+                {!uploadedImage && "Upload Image (png only)"}
               </Button>
             </div>
           </div>
