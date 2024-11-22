@@ -18,6 +18,8 @@ function App() {
       const response = await axios.post("http://127.0.0.1:5000/upload", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
+          // "Access-Control-Allow-Origin": "http://localhost:5173",
+          // "Access-Control-Allow-Headers": "Content-Type",
         },
       });
       console.log(response.data);
@@ -49,7 +51,7 @@ function App() {
               <input
                 id="file-upload"
                 type="file"
-                accept=".png"
+                accept=".jpg"
                 ref={fileInputRef}
                 onChange={handleFileUpload}
               />
@@ -65,7 +67,7 @@ function App() {
                 }}
                 onClick={() => fileInputRef.current.click()}
               >
-                {!uploadedImage && "Upload Image (png only)"}
+                {!uploadedImage && "Upload Image (jpg only)"}
               </Button>
             </div>
           </div>

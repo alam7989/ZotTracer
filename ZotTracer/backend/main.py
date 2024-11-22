@@ -4,7 +4,7 @@ from flask_cors import CORS
 import process_image
 
 app = Flask(__name__, static_folder='frontend/build')
-CORS(app)
+CORS(app, resources={r"/upload": {"origins": ["http://localhost:5173", "*"]}})
 
 @app.route("/")
 def index():
