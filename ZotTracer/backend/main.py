@@ -1,5 +1,7 @@
+from multiprocessing import ProcessError
 from flask import Flask, request, jsonify
 from flask_cors import CORS
+import process_image
 
 app = Flask(__name__, static_folder='frontend/build')
 CORS(app)
@@ -10,6 +12,7 @@ def index():
 
 @app.route("/upload", methods = ["POST"])
 def get_file():
+    # error checking
     if "file" not in request.files:
         return jsonify({"error": "No file part in the request"}), 400
     
@@ -20,6 +23,8 @@ def get_file():
 
     print("file received", file)
     f = []
+    # mask the file (color block)
+    process_image.getMask(file)
 
     return jsonify({"message": "File uploaded successfully", "outlined_file": f}), 200
 
