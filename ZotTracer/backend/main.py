@@ -29,7 +29,7 @@ def get_file():
 
     return jsonify({"message": "File uploaded successfully", "outlined_file": f}), 200
 
-@app.route("/get_drawn_svg", methods = ["POST"])
+@app.route("/upload_svg", methods = ["POST"])
 def get_drawn_svg():
     if "file" not in request.files:
         return jsonify({"error": "No file part in the request"}), 400

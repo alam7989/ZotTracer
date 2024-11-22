@@ -33,19 +33,21 @@ function App() {
   };
 
   const sendDrawnSVGToBackend = async () => {
-    const svg = exportToSvg({ elements: excalidrawAPIRef.current.getSceneElements() });
+    const svg = await exportToSvg({ elements: excalidrawAPIRef.current.getSceneElements() });
+    const svgBlob = new Blob([svg], { type: "image/svg+xml" }); // flask backend only receives files, not svg formats
+
     const formData = new FormData();
-    formData.append("file", svg);
+    formData.append("file", svgBlob);
 
     try {
-      const response = await axios.post("http://127.0.0.1:5000/get_drawn_svg", formData, {
+      const response = await axios.post("http://127.0.0.1:5000/upload_svg", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
       });
       console.log(response.data);
     } catch (error) {
-      console.error("Error uploading file:", error);
+      console.error("Error uploading svg:", error);
     }
   };
 
