@@ -60,38 +60,38 @@ function App() {
   };
 
   return (
-      <div id='display'>
-        <h1>ZotTracer</h1>
-        <div id='top'>
-          <div id='left'>
-            <h3>Choose your shape!</h3>
-            <div id='shapes'>
-              <Button class='shapeButton' onClick={() => setShape("a circle")}/>
-              <Button class='shapeButton' onClick={() => setShape("a triangle")}/>
-         
-              <input
-                id="file-upload"
-                type="file"
-                accept=".jpg"
-                ref={fileInputRef}
-                onChange={handleFileUpload}
-              />
-              <Button
-                class='shapeButton'
-                sx={{
-                  backgroundImage: `url(${uploadedImage})`,
-                  backgroundSize: "contain",
-                  backgroundPosition: "center",
-                  backgroundRepeat: "no-repeat",
-                  height: "15vh",
-                  marginTop: "1vh"
-                }}
-                onClick={() => fileInputRef.current.click()}
-              >
-                {!uploadedImage && "Upload Image (jpg only)"}
-              </Button>
-            </div>
+    <div id='display'>
+      <h1>ZotTracer</h1>
+      <div id='top'>
+        <div id='left'>
+          <h3>Choose your shape!</h3>
+          <div id='shapes'>
+            <Button class='shapeButton' onClick={() => setShape("a circle")} />
+            <Button class='shapeButton' onClick={() => setShape("a triangle")} />
+
+            <input
+              id="file-upload"
+              type="file"
+              accept=".jpg"
+              ref={fileInputRef}
+              onChange={handleFileUpload}
+            />
+            <Button
+              class='shapeButton'
+              sx={{
+                backgroundImage: `url(${uploadedImage})`,
+                backgroundSize: "contain",
+                backgroundPosition: "center",
+                backgroundRepeat: "no-repeat",
+                height: "15vh",
+                marginTop: "1vh"
+              }}
+              onClick={() => fileInputRef.current.click()}
+            >
+              {!uploadedImage && "Upload Image (jpg only)"}
+            </Button>
           </div>
+        </div>
 
         <div id='drawing_area'>
           <p>Draw {shape} :D</p>
