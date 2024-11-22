@@ -24,6 +24,8 @@ const ExcalidrawComponent = ({ onAPIReady }) => {
         // Handle pointer (mouse) updates
           console.log("SVG DATA STUFF");
           document.getElementById("excalidraw").style.pointerEvents = "none";
+          document.getElementById("footer").style.display = "flex";
+
       }}>
         <Excalidraw id="excalidrawComp" excalidrawAPI={
           (api) => {
