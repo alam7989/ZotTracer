@@ -22,6 +22,8 @@ function App() {
       const response = await axios.post("http://127.0.0.1:5000/upload", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
+          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Credentials": "true",
         },
       });
       console.log(response.data);

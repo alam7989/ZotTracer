@@ -3,8 +3,9 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS
 import process_image
 
+
 app = Flask(__name__, static_folder='frontend/build')
-CORS(app)
+CORS(app, origins=['*'])
 
 @app.route("/")
 def index():
