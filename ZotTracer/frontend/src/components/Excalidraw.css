@@ -1,0 +1,11 @@
+#excalidraw {
+    overflow: hidden;
+    position: fixed;
+    width: 142vh;
+    height: 170vh;
+    right: 5vh;
+    margin: 0px;
+    top: -35vh;
+
+    border-style: double;
+}  
