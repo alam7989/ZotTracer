@@ -105,3 +105,13 @@ input[type="file"] {
   padding-bottom: 7%;
   background-color: aliceblue;
 }
+
+#excalidraw {
+  overflow: hidden;
+  position: fixed;
+  height: 170vh;
+  width: 100vw;
+  left: 37vw;
+  top: -35vh;
+
+}  
