@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
@@ -7,20 +7,17 @@ import ExcalidrawComponent from './components/Excalidraw'
 
 
 function App() {
-  const [count, setCount] = useState(0)
   const [shape, setShape] = useState('circle'); // default shape: circle
-  const [file, setFile] = useState();// useState("./assets/StarOutline.png");
+  const [uploadedImage, setUploadedImage] = useState("");
+  const fileInputRef = useRef(null);
 
-  function uploadFile(e) {
-    console.log(e.target.files);
-    setFile(URL.createObjectURL(e.target.files[0]));
-  }
-
-  // var uploadedSvg = (
-  //   <Icon>
-  //     <img src={file}/>
-  //   </Icon>
-  // )
+  const handleFileUpload = (event) => {
+    const file = event.target.files[0];
+    if (file) {
+      const blobURL = URL.createObjectURL(file);
+      setUploadedImage(blobURL);
+    }
+  };
 
   return (
       <div id='display'>
@@ -30,10 +27,29 @@ function App() {
             <h3>Choose your shape!</h3>
             <div id='shapes'>
               <Button class='shapeButton' onClick={() => setShape("circle")}/>
-              <Button class='shapeButton' variant="outlined" onClick={() => setShape("triangle")}/>
-              {/* <Button class='shapeButton' startIcon={<Icon><img src={file}/></Icon>}></Button> */}
-              <label for="file-upload" class="upload-label">Upload your own svg image!</label>
-              <input type="file" accept=".svg" id='file-upload' onChange={uploadFile}/>
+              <Button class='shapeButton' onClick={() => setShape("triangle")}/>
+         
+              <input
+                id="file-upload"
+                type="file"
+                accept=".svg"
+                ref={fileInputRef}
+                onChange={handleFileUpload}
+                style={{ marginBottom: "10px" }}
+              />
+              <Button
+                class='shapeButton'
+                sx={{
+                  backgroundImage: `url(${uploadedImage})`,
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
+                  height: "15vh",
+                  marginTop: "1vh"
+                }}
+                onClick={() => fileInputRef.current.click()}
+              >
+                {!uploadedImage && "Upload Image"}
+              </Button>
             </div>
           </div>
           <div id='drawing_area'>
@@ -45,7 +61,6 @@ function App() {
         </div>
         <div id='footer'>
           <p>Score:</p>
-          <img src={file} />
         </div>
       </div>
   )
