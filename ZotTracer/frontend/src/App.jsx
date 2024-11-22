@@ -7,7 +7,7 @@ import ExcalidrawComponent from './components/Excalidraw'
 
 
 function App() {
-  const [shape, setShape] = useState('circle'); // default shape: circle
+  const [shape, setShape] = useState('a circle'); // default shape: circle
   const [uploadedImage, setUploadedImage] = useState("");
   const fileInputRef = useRef(null);
 
@@ -16,6 +16,7 @@ function App() {
     if (file) {
       const blobURL = URL.createObjectURL(file);
       setUploadedImage(blobURL);
+      setShape("your uploaded image");
     }
   };
 
@@ -26,8 +27,8 @@ function App() {
           <div id='left'>
             <h3>Choose your shape!</h3>
             <div id='shapes'>
-              <Button class='shapeButton' onClick={() => setShape("circle")}/>
-              <Button class='shapeButton' onClick={() => setShape("triangle")}/>
+              <Button class='shapeButton' onClick={() => setShape("a circle")}/>
+              <Button class='shapeButton' onClick={() => setShape("a triangle")}/>
          
               <input
                 id="file-upload"
@@ -53,7 +54,7 @@ function App() {
             </div>
           </div>
           <div id='drawing_area'>
-            <p>Draw a {shape} :D</p>
+            <p>Draw {shape} :D</p>
             <div id="canvas" >
             <ExcalidrawComponent />
             </div>
