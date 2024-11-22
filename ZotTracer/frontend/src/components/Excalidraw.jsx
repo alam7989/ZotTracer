@@ -37,7 +37,9 @@ const ExcalidrawComponent = () => {
             appState: {
                 viewBackgroundColor: 'transparent',
                 zenModeEnabled: true,
-                isToolBarVisible: false
+                activeTool: {
+                  type: "freedraw", // Start with the free-draw tool
+                },
         } }}
       />
     </div>
