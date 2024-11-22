@@ -39,12 +39,13 @@
   background-repeat: no-repeat;
 }
 
+
 input[type="file"] {
   display: none; /* Hide the file input element */
 }
 
 #drawing_area {
-  flex: 3;                        /* Drawing area takes more space */
+  flex: 2;                        /* Drawing area takes more space */
   text-align: center;
   background-color: #272727;
   padding: 3vw;
@@ -66,9 +67,26 @@ input[type="file"] {
 }
 
 #footer {
+  display: flex;
   width: 95%;
   text-align: center;
   margin-top: 10vh;
-  background-color: #272727;
   border-radius: 8px;
+}
+
+#spacer {
+  background-color: #272727;
+  color: #272727;
+  flex: 10
+
+}
+
+.clearButton {
+  flex: 1;
+  height: 5vh;
+  margin-top: 1vh;
+  margin-bottom: 1vh;
+  background-position: center;
+  background-size:contain;
+  background-repeat: no-repeat;
 }

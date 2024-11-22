@@ -8,6 +8,8 @@ function App() {
   const [shape, setShape] = useState('a circle'); // default shape: circle
   const [uploadedImage, setUploadedImage] = useState("");
   const fileInputRef = useRef(null);
+  const excalidrawAPIRef = useRef(null);
+
 
   const handleFileUpload = (event) => {
     const file = event.target.files[0];
@@ -49,17 +51,29 @@ function App() {
               >
                 {!uploadedImage && "Upload Image (svg only)"}
               </Button>
+
             </div>
           </div>
+          
           <div id='drawing_area'>
             <p>Draw {shape} :D</p>
             <div id="canvas" >
-            <ExcalidrawComponent />
+            <ExcalidrawComponent onAPIReady = {(api) => {
+                excalidrawAPIRef.current = api; // Store API in a ref
+              }}/>
             </div>
           </div>
         </div>
         <div id='footer'>
+          <Button class='clearButton' onClick={() => {
+            if (excalidrawAPIRef.current) {
+              excalidrawAPIRef.current.updateScene({ elements: [] });
+            }
+            document.getElementById("excalidraw").style.pointerEvents = "auto";
+          }}/>
           <p>Score:</p>
+          <div id='spacer'>vhgh</div>
+
         </div>
       </div>
   )
