@@ -21,17 +21,18 @@ const ExcalidrawComponent = () => {
 //   }, []); // Only run once after mount
 
   return (
-    <div style={{ width: "100%", height: "400px", border: "1px solid #ccc"}}>
+    <div style={{ width: "100%", height: "400px", border: "1px solid #ccc"}} 
+      onPointerUp={() => {
+        // Handle pointer (mouse) updates
+          console.log("SVG DATA STUFF");
+      }}>
       <Excalidraw 
-        ref={excalidrawRef}
+        // ref={excalidrawRef}
         // onChange={(elements) => {
         //     // Handle changes to the elements
         //     console.log(elements);
         // }}
-        //   onPointerUpdate={(pointerData) => {
-        //     // Handle pointer (mouse) updates
-        //     console.log(pointerData);
-        // }}
+        // onPointerDown
         
         initialData={{ 
             appState: {
